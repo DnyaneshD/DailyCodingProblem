@@ -1,3 +1,4 @@
+// Solution 1
 function findPositiveInteger(arr) {
   const sortedArr = quick_Sort(arr);
 
@@ -35,4 +36,22 @@ function quick_Sort(origArray) {
   }
 }
 
-console.log(findPositiveInteger([3, 4, -1, 1]));
+// Solution 2
+
+function findPositiveIntegerS2(arr) {
+  const positiveNumbers = [];
+
+  arr.forEach(n => {
+    if (n > 0) {
+      positiveNumbers.push(n);
+    }
+  });
+
+  for (let i = 1; i <= arr.length + 1; i++) {
+    if (positiveNumbers.findIndex(x => x === i) === -1) {
+      return i;
+    }
+  }
+}
+
+console.log(findPositiveIntegerS2([3, 4, 2, 1]));
